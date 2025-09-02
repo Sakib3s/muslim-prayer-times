@@ -1,4 +1,4 @@
-# Prayer Times — Modern, Responsive Web App
+# Muslim Prayer Times — Modern, Responsive Web App 
 
 A clean, colorful, and responsive Muslim prayer time website built with HTML, CSS, JavaScript, and jQuery. It detects the user’s location, shows today’s prayer times with start/end windows, a live countdown to the next prayer, weekly and monthly timetables, Qibla direction, and optional desktop notifications.
 
