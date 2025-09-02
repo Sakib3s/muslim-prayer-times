@@ -18,7 +18,7 @@ Times and Qibla data are powered by the public AlAdhan API.
 Deploy via GitHub Pages (see Deployment). Once deployed, your site is accessible at:
 
 ```
-https://<your‑github‑username>.github.io/<repo-name>/
+https://sakib3s.github.io/muslim-prayer-times/
 ```
 
 ## Quick Start
