@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prayer Times</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">🕌</div>
+        <div>
+          <h1>Prayer Times</h1>
+          <p class="subtitle">Accurate daily, weekly, monthly Salah times</p>
+        </div>
+      </div>
+      <div class="actions">
+        <button id="btn-locate" class="btn primary">Use My Location</button>
+        <button id="btn-set-location" class="btn">Set Location</button>
+      </div>
+    </header>
+
+    <section class="location-bar" role="status" aria-live="polite">
+      <div>
+        <strong>Location:</strong> <span id="location-text">Detecting…</span>
+      </div>
+      <div>
+        <strong>Date:</strong> <span id="date-text"></span>
+      </div>
+      <div class="tz">
+        <strong>Time Zone:</strong> <span id="tz-text"></span>
+      </div>
+    </section>
+
+    <main class="container">
+      <section class="card today">
+        <div class="card-header">
+          <h2><i class="ri-calendar-todo-line"></i> Today’s Prayers</h2>
+          <div class="next-prayer">
+            <span>Next:</span>
+            <span id="next-prayer-name" class="pill">—</span>
+            <span id="next-prayer-time" class="time">—</span>
+          </div>
+        </div>
+        <div id="today-grid" class="prayer-grid" aria-live="polite"></div>
+        <div class="countdown" aria-live="polite">
+          <div class="label">Time until next prayer</div>
+          <div id="countdown-timer" class="timer">--:--:--</div>
+        </div>
+      </section>
+
+      <section class="card timetable">
+        <div class="card-header">
+          <h2><i class="ri-table-line"></i> Timetable</h2>
+          <div class="view-toggle" role="tablist" aria-label="Timetable range">
+            <button id="tab-today" class="tab active" role="tab" aria-selected="true">Today</button>
+            <button id="tab-week" class="tab" role="tab" aria-selected="false">Week</button>
+            <button id="tab-month" class="tab" role="tab" aria-selected="false">Month</button>
+          </div>
+        </div>
+        <div id="timetable-meta" class="table-meta"></div>
+        <div class="table-wrap">
+          <table id="timetable" class="table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Fajr</th>
+                <th>Dhuhr</th>
+                <th>Asr</th>
+                <th>Maghrib</th>
+                <th>Isha</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="grid two-cols">
+        <section class="card qibla">
+          <div class="card-header">
+            <h2><i class="ri-compass-3-line"></i> Qibla Direction</h2>
+            <div id="qibla-deg" class="muted">—</div>
+          </div>
+          <div class="compass" aria-label="Qibla Compass">
+            <div class="dial">
+              <div class="north">N</div>
+              <div id="qibla-needle" class="needle" aria-hidden="true"></div>
+            </div>
+          </div>
+          <div class="muted small">Arrow points towards the Qibla (bearing from North).</div>
+        </section>
+
+        <section class="card notifications">
+          <div class="card-header">
+            <h2><i class="ri-notification-3-line"></i> Notifications</h2>
+          </div>
+          <div class="notify-row">
+            <label class="switch">
+              <input id="notify-toggle" type="checkbox" />
+              <span class="slider"></span>
+            </label>
+            <div>
+              <div class="label">Prayer reminders</div>
+              <div class="muted small">Desktop notification at next prayer time.</div>
+            </div>
+          </div>
+          <div id="notify-status" class="muted small"></div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>Copyright © 2025 All Rights Reserved | Sakib Hasan</div>
+    </footer>
+
+    <dialog id="location-dialog">
+      <form method="dialog" class="location-form">
+        <h3>Set Location</h3>
+        <p class="muted">Enter your coordinates if geolocation is blocked.</p>
+        <div class="field">
+          <label for="lat">Latitude</label>
+          <input id="lat" name="lat" type="number" step="any" required placeholder="e.g., 24.7136" />
+        </div>
+        <div class="field">
+          <label for="lng">Longitude</label>
+          <input id="lng" name="lng" type="number" step="any" required placeholder="e.g., 46.6753" />
+        </div>
+        <menu>
+          <button value="cancel" class="btn">Cancel</button>
+          <button id="save-location" value="default" class="btn primary">Save</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+  </html>
